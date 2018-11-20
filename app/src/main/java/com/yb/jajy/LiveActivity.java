@@ -38,16 +38,25 @@ public class LiveActivity extends AppCompatActivity {
 
         LiveBean liveBean = new Gson().fromJson(liveData, LiveBean.class);
         getLiveUrl(liveBean);
-        ImageView imageView =  findViewById(R.id.liveIvFace);
+        ImageView imageView = findViewById(R.id.liveIvFace);
 
-      //  Drawable drawablegetResources().getDrawable(R.mipmap.ic_launcher);
-       Glide.with(this).load(R.mipmap.ic_launcher).transform(new GlideCircleTransform(getApplicationContext())).into(imageView);
+        //  Drawable drawablegetResources().getDrawable(R.mipmap.ic_launcher);
+        Glide.with(this).load(R.mipmap.ic_launcher).transform(new GlideCircleTransform(getApplicationContext())).into(imageView);
         findViewById(R.id.liveIvClose).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+
+        findViewById(R.id.liveIvPlay).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                v.setVisibility(View.GONE);
+            }
+        });
+
     }
 
 
