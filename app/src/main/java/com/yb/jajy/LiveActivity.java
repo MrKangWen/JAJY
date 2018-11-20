@@ -1,5 +1,6 @@
 package com.yb.jajy;
 
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,7 +39,9 @@ public class LiveActivity extends AppCompatActivity {
         LiveBean liveBean = new Gson().fromJson(liveData, LiveBean.class);
         getLiveUrl(liveBean);
         ImageView imageView =  findViewById(R.id.liveIvFace);
-        Glide.with(this).load("http://goo.gl/gEgYUd").into(imageView);
+
+      //  Drawable drawablegetResources().getDrawable(R.mipmap.ic_launcher);
+       Glide.with(this).load(R.mipmap.ic_launcher).transform(new GlideCircleTransform(getApplicationContext())).into(imageView);
         findViewById(R.id.liveIvClose).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
