@@ -3,7 +3,10 @@ package com.yb.jajy;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -34,6 +37,14 @@ public class LiveActivity extends AppCompatActivity {
 
         LiveBean liveBean = new Gson().fromJson(liveData, LiveBean.class);
         getLiveUrl(liveBean);
+        ImageView imageView =  findViewById(R.id.liveIvFace);
+        Glide.with(this).load("http://goo.gl/gEgYUd").into(imageView);
+        findViewById(R.id.liveIvClose).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
 
@@ -44,9 +55,9 @@ public class LiveActivity extends AppCompatActivity {
                 .add("appName ", liveBean.getLiveName())
                 .build();
         Request request = new Request.Builder()
-                .url("https://wx.gaoby.cn/api/UnionTV/GetPlayUrl")
+                .url("https://wx.juaijiayuan.com/api/UnionTV/GetPlayUrl")
                 .post(requestBody)
-                .addHeader("livetoken",liveBean.getLiveToken())
+                .addHeader("livetoken", liveBean.getLiveToken())
                 .build();
 
         okHttpClient.newCall(request).enqueue(new Callback() {
