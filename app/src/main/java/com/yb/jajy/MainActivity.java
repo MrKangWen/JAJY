@@ -31,11 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
         //添加js监听 这样html就能调用客户端
         //  mWebView.addJavascriptInterface(this, "getLiveIdFromObjC");
-
         mWebView.registerHandler("getLiveIdFromObjC", new BridgeHandler() {
             @Override
             public void handler(String data, CallBackFunction function) {
-                Log.i("mytest", "handler = submitFromWeb, data from web = " + data);
+             //   Log.i("mytest", "handler = submitFromWeb, data from web = " + data);
                 function.onCallBack("submitFromWeb exe, response data from Java");
 
                 Intent intent = new Intent(MainActivity.this, LiveActivity.class);
