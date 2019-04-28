@@ -22,12 +22,11 @@ import okhttp3.Call;
 import okhttp3.Response;
 
 /**
+ * JAJY
  * @author kang
  */
 public class LiveActivity extends AppCompatActivity {
     public String TAG = "LiveActivity";
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +71,6 @@ public class LiveActivity extends AppCompatActivity {
                 .build();
 
         okHttpClient.newCall(request).enqueue(new Callback() {
-
 
             @Override
             public void onFailure(Call call, IOException e) {
