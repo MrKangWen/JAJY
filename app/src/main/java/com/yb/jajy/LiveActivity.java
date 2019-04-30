@@ -38,7 +38,6 @@ public class LiveActivity extends AppCompatActivity {
         getLiveUrl(liveBean);
         ImageView imageView = findViewById(R.id.liveIvFace);
 
-        //  Drawable drawablegetResources().getDrawable(R.mipmap.ic_launcher);
         Glide.with(this).load(R.mipmap.ic_launcher).transform(new GlideCircleTransform(getApplicationContext())).into(imageView);
         findViewById(R.id.liveIvClose).setOnClickListener(new View.OnClickListener() {
             @Override
